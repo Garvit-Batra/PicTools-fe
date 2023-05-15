@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Landing from "./components/Landing";
+import Color from "./components/Color";
 
 function App() {
+  // const [sessionID, setSessionID] = useState(null);
+  // useEffect(() => {
+  //   const fetchSessionID = async () => {
+  //     try {
+  //       const response = await axios.get("/session");
+  //       setSessionID(response.data.sessionID);
+  //     } catch (error) {
+  //       console.error("Failed to fetch session ID:", error);
+  //     }
+  //   };
+  //   fetchSessionID();
+  // }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/color" element={<Color />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
