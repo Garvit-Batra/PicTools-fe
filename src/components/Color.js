@@ -50,14 +50,32 @@ export default function Color() {
     link.click();
     URL.revokeObjectURL(url);
   };
+
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileInputChange} />
-        <button type="submit">Upload</button>
-        <img src={imageData} alt="My pic" />
+    <div className="container mt-5">
+      <form onSubmit={handleSubmit} className="container">
+        <input
+          className="form-control my-3 input-class"
+          type="file"
+          id="formFile"
+          onChange={handleFileInputChange}
+        />
+        <button type="submit" className="btn my-3" disabled={!selectedFile}>
+          Upload
+        </button>
+        {imageData ? (
+          <img
+            src={imageData}
+            alt="Result will be shown here"
+            className="my-3 image-class"
+          />
+        ) : null}
       </form>
-      <button onClick={downloadImage}>Download Image</button>
-    </>
+      {imageData ? (
+        <button className="btn my-3" onClick={downloadImage}>
+          Download Image
+        </button>
+      ) : null}
+    </div>
   );
 }
