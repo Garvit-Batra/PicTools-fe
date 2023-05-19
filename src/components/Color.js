@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 export default function Color() {
   const [selectedFile, setSelectedFile] = useState(null);
   const handleFileInputChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
-  const [flag, setFlag] = useState(1);
   const [imageData, setImageData] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,25 +15,9 @@ export default function Color() {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        responseType: "arraybuffer",
       })
       .then((response) => {
-        if (flag === 0) {
-          setFlag(1);
-        } else {
-          setFlag(0);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    const getImage = async () => {
-      try {
-        const response = await axios.get("http://localhost:3001/color", {
-          responseType: "arraybuffer",
-        });
         const base64Data = window.btoa(
           new Uint8Array(response.data).reduce(
             (data, byte) => data + String.fromCharCode(byte),
@@ -42,22 +25,13 @@ export default function Color() {
           )
         );
         setImageData(`data:image/jpg;base64,${base64Data}`);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getImage();
-  }, [flag]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const downloadImage = () => {
-    axios.post("http://localhost:3001/color/signal").then((response) => {
-      if (flag === 0) {
-        setFlag(1);
-      } else {
-        setFlag(0);
-      }
-    });
-
     var imgData = imageData;
     var byteCharacters = window.atob(
       imgData.replace(/^data:image\/(png|jpeg|jpg);base64,/, "")
