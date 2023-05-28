@@ -7,7 +7,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            PicTools
+            Home
           </Link>
           <button
             className="navbar-toggler"
@@ -28,8 +28,8 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                <Link className="nav-link" to="/">
-                  Image cleaner
+                <Link className="nav-link" to="/restore">
+                  Restore Image
                 </Link>
               </li>
               <li className="nav-item dropdown mx-3">
@@ -40,22 +40,27 @@ export default function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Basic Operations
+                  Basic Tools
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="/">
-                      Action
+                    <Link className="dropdown-item" to="/rcrop">
+                      Rectangle Crop
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/">
-                      Another action
+                    <Link className="dropdown-item" to="/ccrop">
+                      Circle Crop
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/">
-                      Something else here
+                    <Link className="dropdown-item" to="/compress">
+                      Compress Image
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/resize">
+                      Resize Image
                     </Link>
                   </li>
                 </ul>
