@@ -53,7 +53,7 @@ export default function Color() {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-5">Color Image</h1>
+      <h1 className="mb-5 page">Color Image</h1>
       <form onSubmit={handleSubmit} className="container">
         <input
           className="form-control my-3 input-class"

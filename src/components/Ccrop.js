@@ -53,7 +53,7 @@ export default function Ccrop() {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-5">Circular Crop Image</h1>
+      <h1 className="mb-5 page">Circular Crop Image</h1>
       <form onSubmit={handleSubmit} className="container">
         <input
           className="form-control my-3 input-class"

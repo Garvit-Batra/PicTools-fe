@@ -6,6 +6,8 @@ import Landing from "./components/Landing";
 import Color from "./components/Color";
 import RecCrop from "./components/RecCrop";
 import Ccrop from "./components/Ccrop";
+import Compress from "./components/Compress";
+import Resize from "./components/Resize";
 function App() {
   return (
     <>
@@ -16,6 +18,8 @@ function App() {
           <Route path="/color" element={<Color />} />
           <Route path="/rcrop" element={<RecCrop />} />
           <Route path="/ccrop" element={<Ccrop />} />
+          <Route path="/compress" element={<Compress />} />
+          <Route path="/resize" element={<Resize />} />
         </Routes>
       </div>
     </>

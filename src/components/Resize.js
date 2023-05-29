@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-export default function RecCrop() {
+export default function Resize() {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
   const handleFileInputChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
@@ -10,8 +12,10 @@ export default function RecCrop() {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", selectedFile);
+    formData.append("w", width);
+    formData.append("h", height);
     axios
-      .post("http://localhost:3001/rcrop", formData, {
+      .post("http://localhost:3001/resize", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -46,20 +50,39 @@ export default function RecCrop() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "cropped image.jpg";
+    link.download = "resized image.jpg";
     link.click();
     URL.revokeObjectURL(url);
   };
-
+  const handleWidth = (event) => {
+    setWidth(event.target.value);
+  };
+  const handleHeight = (event) => {
+    setHeight(event.target.value);
+  };
   return (
     <div className="container mt-5">
-      <h1 className="mb-5 page">Rectangular Crop Image</h1>
+      <h1 className="mb-5 page">Resize Image</h1>
       <form onSubmit={handleSubmit} className="container">
         <input
           className="form-control my-3 input-class"
           type="file"
           id="formFile"
           onChange={handleFileInputChange}
+        />
+        <input
+          className="form-control my-3 input-class"
+          type="number"
+          placeholder="width"
+          name="width"
+          onChange={handleWidth}
+        />
+        <input
+          className="form-control my-3 input-class"
+          type="number"
+          placeholder="height"
+          name="height"
+          onChange={handleHeight}
         />
         <button type="submit" className="btn my-3" disabled={!selectedFile}>
           Upload
