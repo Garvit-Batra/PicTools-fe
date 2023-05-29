@@ -69,6 +69,7 @@ export default function Compress() {
           className="form-control my-3 input-class"
           type="number"
           name="size"
+          min={1}
           placeholder="Size (in KB)"
           onChange={handleSize}
         />

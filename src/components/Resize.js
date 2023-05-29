@@ -55,10 +55,18 @@ export default function Resize() {
     URL.revokeObjectURL(url);
   };
   const handleWidth = (event) => {
-    setWidth(event.target.value);
+    if (event.target.value >= 0) {
+      setWidth(event.target.value);
+    } else {
+      setWidth(0);
+    }
   };
   const handleHeight = (event) => {
-    setHeight(event.target.value);
+    if (event.target.value >= 0) {
+      setHeight(event.target.value);
+    } else {
+      setHeight(0);
+    }
   };
   return (
     <div className="container mt-5">
@@ -73,15 +81,17 @@ export default function Resize() {
         <input
           className="form-control my-3 input-class"
           type="number"
-          placeholder="width"
+          placeholder="Width"
           name="width"
+          min={0}
           onChange={handleWidth}
         />
         <input
           className="form-control my-3 input-class"
           type="number"
-          placeholder="height"
+          placeholder="Height"
           name="height"
+          min={0}
           onChange={handleHeight}
         />
         <button type="submit" className="btn my-3" disabled={!selectedFile}>
