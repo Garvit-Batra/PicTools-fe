@@ -15,7 +15,7 @@ export default function Resize() {
     formData.append("w", width);
     formData.append("h", height);
     axios
-      .post("http://localhost:3001/resize", formData, {
+      .post("https://pictools-be.onrender.com/resize", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

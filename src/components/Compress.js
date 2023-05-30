@@ -13,7 +13,7 @@ export default function Compress() {
     formData.append("file", selectedFile);
     formData.append("size", size);
     axios
-      .post("http://localhost:3001/compress", formData, {
+      .post("https://pictools-be.onrender.com/compress", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

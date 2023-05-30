@@ -11,7 +11,7 @@ export default function Blur() {
     const formData = new FormData();
     formData.append("file", selectedFile);
     axios
-      .post("http://localhost:3001/blur", formData, {
+      .post("https://pictools-be.onrender.com/blur", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

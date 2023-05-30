@@ -11,7 +11,7 @@ export default function Pick() {
     const formData = new FormData();
     formData.append("file", selectedFile);
     axios
-      .post("http://localhost:3001/pick", formData, {
+      .post("https://pictools-be.onrender.com/pick", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

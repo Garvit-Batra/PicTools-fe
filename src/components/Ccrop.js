@@ -11,7 +11,7 @@ export default function Ccrop() {
     const formData = new FormData();
     formData.append("file", selectedFile);
     axios
-      .post("http://localhost:3001/ccrop", formData, {
+      .post("https://pictools-be.onrender.com/ccrop", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
