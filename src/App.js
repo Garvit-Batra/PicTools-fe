@@ -8,6 +8,8 @@ import RecCrop from "./components/RecCrop";
 import Ccrop from "./components/Ccrop";
 import Compress from "./components/Compress";
 import Resize from "./components/Resize";
+import Blur from "./components/Blur";
+import Pick from "./components/Pick";
 function App() {
   return (
     <>
@@ -20,6 +22,8 @@ function App() {
           <Route path="/ccrop" element={<Ccrop />} />
           <Route path="/compress" element={<Compress />} />
           <Route path="/resize" element={<Resize />} />
+          <Route path="/blur" element={<Blur />} />
+          <Route path="/pick" element={<Pick />} />
         </Routes>
       </div>
     </>

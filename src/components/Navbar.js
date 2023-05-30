@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg shadow-lg p-2 rounded">
+      <nav className="navbar navbar-expand-lg shadow-lg p-2">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Home
@@ -28,8 +28,23 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                <Link className="nav-link" to="/restore">
-                  Restore Image
+                <Link className="nav-link" to="/compress">
+                  Compress Image
+                </Link>
+              </li>
+              <li className="nav-item mx-3">
+                <Link className="nav-link" to="/resize">
+                  Resize Image
+                </Link>
+              </li>
+              <li className="nav-item mx-3">
+                <Link className="nav-link" to="/blur">
+                  Blur Image
+                </Link>
+              </li>
+              <li className="nav-item mx-3">
+                <Link className="nav-link" to="/pick">
+                  Pick Color
                 </Link>
               </li>
               <li className="nav-item dropdown mx-3">
@@ -40,7 +55,7 @@ export default function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Basic Tools
+                  Crop Image
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
@@ -51,16 +66,6 @@ export default function Navbar() {
                   <li>
                     <Link className="dropdown-item" to="/ccrop">
                       Circle Crop
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/compress">
-                      Compress Image
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/resize">
-                      Resize Image
                     </Link>
                   </li>
                 </ul>
